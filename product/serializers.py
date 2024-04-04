@@ -1,4 +1,3 @@
-# serializers.py
 from rest_framework import serializers
 from .models import Product, Category
 
@@ -13,7 +12,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'description', 'price', 'categories', 'category_ids']
+        fields = ['id', 'name', 'description', 'price', 'quantity', 'categories', 'category_ids']
 
     def create(self, validated_data):
         categories_data = validated_data.pop('categories', [])
