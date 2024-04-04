@@ -1,11 +1,20 @@
 from rest_framework import generics
-from .models import Product
-from .serializers import ProductSerializer
+from rest_framework.permissions import IsAuthenticated
+from .models import Product, Category
+from .serializers import ProductSerializer, CategorySerializer
+from .permissions import IsAdminUser
 
-class ProductListCreateAPIView(generics.ListCreateAPIView):
+class ProductListCreateView(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
-class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+class ProductRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
+
+class CategoryCreateView(generics.CreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+    permission_classes = [IsAuthenticated, IsAdminUser]
