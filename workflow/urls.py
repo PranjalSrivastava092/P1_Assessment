@@ -1,4 +1,3 @@
-# urls.py (inside the base app)
 from django.urls import path
 from .views import CartItemCreateView, CartDetailView, OrderCreateView, OrderHistoryView
 

@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 
     'authentication',
     'product',
-    'base',
+    'workflow',
 ]
 
 MIDDLEWARE = [

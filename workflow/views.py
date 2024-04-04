@@ -1,4 +1,3 @@
-# views.py (inside the base app)
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from .models import Cart, CartItem, Order
